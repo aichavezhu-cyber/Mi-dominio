@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, 
+    once: true 
+  });
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Glow</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
+    
+    <style>
+        /* Asegura que la portada sea el límite de los pétalos */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Estilo base de los pétalos generados por JS */
+        .rose-petal {
+            position: absolute;
+            top: -30px;
+            pointer-events: none; 
+            user-select: none;
+            z-index: 1;
+            animation: caer linear infinite;
+        }
+
+        /* Animación física de caída y rotación */
+        @keyframes caer {
+            0% {
+                transform: translateY(0) rotate(0deg) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg) translateX(80px);
+                opacity: 0;
+            }
+        }
+
+        /* ======================================================== */
+        /* EFECTO DE BRILLO ROSA EN LOS TÍTULOS (HOVER)             */
+        /* ======================================================== */
+        .menu-section h2, 
+        .reservas-section h2, 
+        .contacto-section h2 {
+            transition: all 0.4s ease-in-out;
+            cursor: default;
+        }
+
+        .menu-section h2:hover, 
+        .reservas-section h2:hover, 
+        .contacto-section h2:hover {
+            color: #ff1b48 !important; 
+            text-shadow: 0 0 10px rgba(255, 183, 197, 0.8), 
+                         0 0 20px rgba(255, 105, 180, 0.5); 
+        }
+
+        /* ======================================================== */
+        /* ANIMACIÓN DE TEMBLOR PARA LAS IMÁGENES DE PROMOCIONES    */
+        /* ======================================================== */
+        .menu-item img {
+            transition: transform 0.2s ease-in-out; /* Regreso suave cuando quitas el mouse */
+        }
+
+        .menu-item img:hover {
+            /* Aplica la animación continuamente mientras el mouse esté encima y escala un 3% */
+            animation: temblar 0.3s infinite linear;
+        }
+
+        @keyframes temblar {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1.03); }
+            20% { transform: translate(-2px, 1px) rotate(-1deg) scale(1.03); }
+            40% { transform: translate(1px, -1px) rotate(1deg) scale(1.03); }
+            60% { transform: translate(-1px, 2px) rotate(0deg) scale(1.03); }
+            80% { transform: translate(2px, 1px) rotate(1deg) scale(1.03); }
+            100% { transform: translate(0, 0) rotate(0deg) scale(1.03); }
+        }
+
+        /* ======================================================== */
+        /* ESTILOS REFORZADOS PARA QUIÉNES SOMOS                    */
+        /* ======================================================== */
+        .about-container-fixed {
+            display: flex !important;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            box-sizing: border-box;
+            animation: entradaSuave 1.2s ease-out forwards;
+        }
+
+        .about-col-fixed {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .about-col-fixed img {
+            width: 100% !important;
+            max-width: 450px;
+            height: auto !important;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+
+        .about-col-fixed p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #000000 !important; 
+        }
+        
+        .about-col-fixed p strong {
+            color: #000000 !important;
+        }
+
+        @keyframes entradaSuave {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-container-fixed {
+                flex-direction: column !important;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Velvet Glow</h1>
+            </div>
+            <ul class="nav-links">
+    <li class="dropdown">
+    <a href="index.html">Inicio</a>
+    <ul class="dropdown-content">
+        <li><a href="blog.html">Blog de Belleza</a></li>
+        <li><a href="lanzamientos.html">Nuevos lanzamientos</a></li>
+        <li><a href="labios.html">Labios & Brillos</a></li>
+        <li><a href="combos.html">Combos especiales</a></li>
+        <li><a href="carro.html">Carrito</a></li>
+    </ul>
+</li>
+
+    <li><a href="#quienes-somos">Quiénes Somos</a></li>
+    <li><a href="#menu">Novedades</a></li>
+    <li><a href="#reservas">Carrito</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+</ul>
+
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+    <div class="hero-content">
+        <h2>Bienvenidos a Velvet Glow</h2>
+        <p>Descubre el brillo que hay en ti con Velvet Glow</p>
+        <a href="#menu" class="btn">Ver mas</a>
+    </div>
+</section>
+
+<section id="quienes-somos" class="menu-section">
+    <h2>Quiénes Somos</h2>
+    <div class="about-container-fixed">
+        
+        <div class="about-col-fixed">
+            <img src="img/rubor.png" alt="Velvet Glow Concepto">
+        </div>
+        
+        <div class="about-col-fixed">
+            <p>
+                En <strong>Velvet Glow</strong> nos dedicamos a resaltar tu belleza natural con productos de la más alta calidad. Creemos firmemente que cada persona posee un brillo único, y nuestro objetivo es brindarte las herramientas ideales para que lo hagas destacar día con día de una forma saludable y deslumbrante.
+            </p>
+            <p>
+                Nuestras fórmulas están diseñadas pensando en la frescura, el cuidado de la piel y acabados aterciopelados que te acompañarán en cada paso que des. ¡Sé parte de nuestra comunidad y descubre tu versión más radiante!
+            </p>
+            <a href="#menu" class="btn">Explorar Colección</a>
+        </div>
+        
+    </div>
+</section>
+
+<section id="menu" class="menu-section">
+    <h2>Promociones</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <img src="img/rubor.png" alt="Rubor Velvet Glow">
+            <h3> Rubor Velvet Glow</h3>
+            <p>Llévate hoy el rubor Velvet Glow con destellos a un precio especial.</p>
+            <span class="precio">s/. 75.00</span>
+        </div>
+        <div class="menu-item">
+            <img src="img/labial.png" alt="Labial Velvet Glow">
+            <h3>Labial Velvet Glow</h3>
+            <p>Llévate hoy el labial Velvet Glow con destellos a un precio especial y haz brillar tu sonrisa.</p>
+            <span class="precio">S/. 40.00</span>
+        </div>
+        <div class="menu-item">
+            <img src="img/polvito.jpeg" alt="Barra Multiusos Velvet Glow">
+            <h3>Glow Premium Highlighter </h3>
+            <p>Selección experta de polvos finos y sedosos para resaltar tus facciones</p>
+            <span class="precio">28.99€</span>
+        </div>
+    </div>
+</section>
+
+<section id="reservas" class="reservas-section">
+    <h2>Pedidos</h2>
+    <form class="reserva-form">
+        <input type="text" placeholder="Nombre Completo" required>
+        <input type="email" placeholder="Email">
+        <input type="tel" placeholder="Teléfono">
+        <input type="date">
+        <input type="time">
+        <select>
+            <option value="">Realiza tu pedido</option>
+            <option value="1">Glow Diario</option>
+            <option value="2">Glam Nocturno</option>
+            <option value="3">Velvet Completo</option>
+        </select>
+        <button type="submit" class="btn">Comprar ahora</button>
+    </form>
+</section>
+
+<section id="contacto" class="contacto-section">
+    <h2>Contacto</h2>
+    <div class="contacto-info">
+        <div>
+                    <i class="fas fa-map-marker-alt"></i>
+        <p>Calle Principal 123, Alicante</p>
+    </div>
+    <div>
+        <i class="fas fa-phone"></i>
+        <p>913 777 306</p>
+    </div>
+    <div>
+        <i class="fas fa-envelope"></i>
+        <p>info@Velvet.com</p>
+    </div>
+</div>
+</section>
+
+<footer>
+    <p>&copy; Velvet Glow. Todos los derechos reservados</p>
+</footer>
+
+<script>
+    function crearPetalo() {
+        const hero = document.getElementById('inicio');
+        if (!hero) return;
+
+        const petalo = document.createElement('span');
+        petalo.className = 'rose-petal';
+
+        const opciones = ['🌸', '🌹', '🍂'];
+        petalo.innerText = opciones[Math.floor(Math.random() * opciones.length)];
+
+        petalo.style.left = Math.random() * 100 + 'vw';
+        
+        const tamaño = Math.random() * 16 + 12;
+        petalo.style.fontSize = tamaño + 'px';
+
+        const duracion = Math.random() * 4 + 4;
+        petalo.style.animationDuration = duracion + 's';
+
+        if (tamaño < 18) {
+            petalo.style.filter = 'blur(1px)';
+            petalo.style.opacity = '0.5';
+        }
+
+        hero.appendChild(petalo);
+
+        setTimeout(() => {
+            petalo.remove();
+        }, duracion * 1000);
+    }
+
+    for (let i = 0; i < 15; i++) {
+        crearPetalo();
+    }
+
+    setInterval(crearPetalo, 300);
+</script>
+
+</body>
+</html>

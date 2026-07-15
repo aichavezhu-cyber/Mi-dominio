@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Glow - Labios & Brillos</title>
+    <link rel="stylesheet" href="styles.css"> 
+    
+    <!-- ESTILOS EXCLUSIVOS PARA LABIOS Y CARRUSEL DE VIDEOS -->
+    <style>
+        body {
+            background-color: #111;
+            color: #ffffff;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding-top: 140px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding-bottom: 50px;
+        }
+
+        .title {
+            color: #e00b51;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #ffffff;
+            margin-bottom: 40px;
+        }
+
+        /* ==========================================
+           CARRUSEL DE VIDEOS (ESTILO FENTY BEAUTY)
+           ========================================== */
+        .video-section {
+            max-width: 1160px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .carousel-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .carousel-track-container {
+            overflow: hidden;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .carousel-track {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style: none; /* Quita los puntitos negros */
+            transition: transform 0.4s ease-in-out;
+            gap: 20px;
+        }
+
+        /* Tarjetas de video adaptadas a Velvet Glow */
+        .carousel-card {
+            min-width: calc(33.333% - 14px); /* Muestra 3 videos a la vez */
+            background-color: #161616;
+            border: 1px solid #e00b51;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-card:hover {
+            border-color: #550620ef;
+            transform: scale(1.02);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 380px; /* Formato vertical tipo TikTok/Reels */
+            background: #000;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        /* Botón de silencio sobre el video */
+        .video-overlay {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            z-index: 2;
+        }
+
+        .mute-btn {
+            background: rgba(22, 22, 22, 0.8);
+            border: 1px solid #e00b51;
+            color: white;
+            padding: 8px 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .mute-btn:hover {
+            background: #e00b51;
+        }
+
+        /* Información del producto del video */
+        .card-info {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #161616;
+            border-top: 1px solid #222;
+        }
+
+        .card-info-text {
+            text-align: left;
+        }
+
+        .card-info .product-name {
+            font-size: 1.1rem;
+            margin: 0 0 5px 0;
+        }
+
+        .card-info .product-price {
+            color: #fafafa;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* Botón '+' circular */
+        .add-video-item-btn {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #8f3e3e;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .add-video-item-btn:hover {
+            background-color: #e00b51;
+            border-color: #e00b51;
+        }
+
+        /* Flechas de navegación del Carrusel */
+        .carousel-btn {
+            background: #161616;
+            border: 1px solid #e00b51;
+            color: #ffffff;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background: #e00b51;
+        }
+
+        .prev-btn { left: -20px; }
+        .next-btn { right: -20px; }
+
+        .carousel-btn:disabled {
+            opacity: 0.2;
+            border-color: #333;
+            cursor: not-allowed;
+        }
+
+        /* Responsivo para el carrusel */
+        @media (max-width: 900px) {
+            .carousel-card { min-width: calc(50% - 10px); }
+        }
+        @media (max-width: 600px) {
+            .carousel-card { min-width: 100%; }
+        }
+
+        /* ==========================================
+           GRID DE PRODUCTOS ESTÁTICOS ORIGINAL
+           ========================================== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        .product-box {
+            background-color: #161616;
+            border: 1px solid #e00b51;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .product-box:hover {
+            border-color: #550620ef;
+            transform: scale(1.02);
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            margin: 15px 0 5px 0;
+        }
+
+        .product-desc {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: #fafafa;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            display: block;
+            width: 100%;
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #8f3e3e;
+            padding: 8px 0;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            background-color: #e00b51;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Tu menú de navegación se mantiene idéntico -->
+        <nav>
+            <div class="logo"><h1>Velvet Glow</h1></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="novedades.html">Novedades</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="title">Labios & Brillos</h2>
+        <p class="subtitle">Encuentra el tono e hidratación perfecta para destacar tu sonrisa.</p>
+        
+        <!-- NUEVA SECCIÓN: CARRUSEL DE VIDEOS COMPATIBLE -->
+        <section class="video-section">
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" aria-label="Anterior">&#10094;</button>
+                
+                <div class="carousel-track-container">
+                    <ul class="carousel-track">
+                        
+                        <!-- Tarjeta Video 1 -->
+                        <li class="carousel-card">
+                            <div class="video-wrapper">
+                                <video src="vid/vid1.mp4" loop muted playsinline></video>
+                                <div class="video-overlay">
+                                    <button class="mute-btn">🔊</button>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <div class="card-info-text">
+                                    <h3 class="product-name">Brillo Matte Velvet</h3>
+                                    <p class="product-price">S/. 29.90</p>
+                                </div>
+                                <button class="add-video-item-btn">+</button>
+                            </div>
+                        </li>
+
+                        <!-- Tarjeta Video 2 -->
+                        <li class="carousel-card">
+                            <div class="video-wrapper">
+                                <video src="vid/vid2.mp4" loop muted playsinline></video>
+                                <div class="video-overlay">
+                                    <button class="mute-btn">🔊</button>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <div class="card-info-text">
+                                    <h3 class="product-name">Gloss Voluminizador</h3>
+                                    <p class="product-price">S/. 34.90</p>
+                                </div>
+                                <button class="add-video-item-btn">+</button>
+                            </div>
+                        </li>
+
+                        <!-- Tarjeta Video 3 -->
+                        <li class="carousel-card">
+                            <div class="video-wrapper">
+                                <video src="vid/vid3.mp4" loop muted playsinline></video>
+                                <div class="video-overlay">
+                                    <button class="mute-btn">🔊</button>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <div class="card-info-text">
+                                    <h3 class="product-name">Lip oil</h3>
+                                    <p class="product-price">S/. 45.00</p>
+                                </div>
+                                <button class="add-video-item-btn">+</button>
+                            </div>
+                        </li>
+
+                        <!-- Tarjeta Video 4 -->
+                        <li class="carousel-card">
+                            <div class="video-wrapper">
+                                <video src="vid/vid4.mp4" loop muted playsinline></video>
+                                <div class="video-overlay">
+                                    <button class="mute-btn">🔊</button>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <div class="card-info-text">
+                                    <h3 class="product-name">Destello Glow</h3>
+                                    <p class="product-price">S/. 39.90</p>
+                                </div>
+                                <button class="add-video-item-btn">+</button>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                
+                <button class="carousel-btn next-btn" aria-label="Siguiente">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- TU GRID DE PRODUCTOS TRADICIONALES -->
+        <div class="grid">
+            <div class="product-box">
+                <img src="img/06.jpg.jpeg" alt="Combo Velvet" style="width: 100%; height: 200px; object-fit: contain; background: #222; border-radius: 10px;">
+                <h3 class="product-name">Brillo Matte Velvet</h3>
+                <p class="product-desc">Larga duración con acabado aterciopelado.</p>
+                <div class="product-price">S/. 29.90</div>
+                <a href="#" class="buy-btn">Añadir al Carrito</a>
+            </div>
+
+            <div class="product-box">
+                <img src="img/07.jpg.jpeg" alt="Combo Velvet" style="width: 100%; height: 200px; object-fit: contain; background: #222; border-radius: 10px;">
+                <h3 class="product-name">Gloss Voluminizador</h3>
+                <p class="product-desc">Efecto 3D de volumen inmediato e hidratación.</p>
+                <div class="product-price">S/. 34.90</div>
+                <a href="#" class="buy-btn">Añadir al Carrito</a>
+            </div>
+
+            <div class="product-box">
+                <img src="img/08.jpg.jpeg" alt="Combo Velvet" style="width: 100%; height: 200px; object-fit: contain; background: #222; border-radius: 10px;">
+                <h3 class="product-name">Brillo Matte Velvet</h3>
+                <p class="product-desc">Larga duración con acabado aterciopelado.</p>
+                <div class="product-price">S/. 29.90</div>
+                <a href="#" class="buy-btn">Añadir al Carrito</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- INTERACTIVIDAD CON JAVASCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const track = document.querySelector('.carousel-track');
+            const cards = document.querySelectorAll('.carousel-card');
+            const nextButton = document.querySelector('.next-btn');
+            const prevButton = document.querySelector('.prev-btn');
+            
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                if (cards.length === 0) return;
+                
+                const cardWidth = cards[0].getBoundingClientRect().width;
+                const gap = 20; 
+                
+                track.style.transform = `translateX(-${(cardWidth + gap) * currentIndex}px)`;
+                
+                const visibleCards = Math.round(track.parentElement.offsetWidth / cardWidth);
+                prevButton.disabled = currentIndex === 0;
+                nextButton.disabled = currentIndex >= cards.length - visibleCards;
+            }
+
+            nextButton.addEventListener('click', () => {
+                const cardWidth = cards[0].getBoundingClientRect().width;
+                const visibleCards = Math.round(track.parentElement.offsetWidth / cardWidth);
+                if (currentIndex < cards.length - visibleCards) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+
+            window.addEventListener('resize', updateCarousel);
+            updateCarousel();
+
+            // Controladores de video individuales (Hover para reproducir)
+            cards.forEach(card => {
+                const video = card.querySelector('video');
+                const muteBtn = card.querySelector('.mute-btn');
+
+                card.addEventListener('mouseenter', () => {
+                    video.play().catch(err => console.log("Auto-play protegido por navegador"));
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    video.pause();
+                });
+
+                if (muteBtn && video) {
+                    muteBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        video.muted = !video.muted;
+                        muteBtn.textContent = video.muted ? "🔊" : "🔈";
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

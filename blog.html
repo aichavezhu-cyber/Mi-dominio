@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Glow - Blog de Belleza</title>
+    <link rel="stylesheet" href="styles.css"> 
+    
+    <style>
+        body {
+            background-color: #111; /* Fondo oscuro elegante */
+            color: #fff;
+            font-family: sans-serif;
+        }
+
+        .blog-container {
+            padding-top: 140px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding-bottom: 50px;
+        }
+
+        .blog-title {
+            color: #e00b51;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0px 2px 10px rgba(224, 11, 81, 0.3);
+        }
+
+        .blog-subtitle {
+            color: #aaa;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        /* Rejilla interactiva para los artículos del blog */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        /* Tarjeta de artículo interactiva - AJUSTADA PARA PERSPECTIVA 3D */
+        .blog-card {
+            background-color: transparent; 
+            min-height: 450px; /* Asegura espacio suficiente para que se vea todo el texto */
+            perspective: 1000px; 
+        }
+
+        /* EFECTO DE GIRO CON REBOTE (cubic-bezier) */
+        .blog-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Curva de rebote */
+            transform-style: preserve-3d;
+        }
+
+        .blog-card:hover .blog-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Caras Frontal y Trasera */
+        .blog-card-front, .blog-card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border: 1px solid #222;
+            box-sizing: border-box;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease; /* Transición suave para el brillo */
+        }
+
+        /* --- NUEVO: AL PASAR EL MOUSE, GIRA Y AÑADE UN BRILLO ROSA NEÓN DIFUMINADO --- */
+        .blog-card:hover .blog-card-front,
+        .blog-card:hover .blog-card-back {
+            border-color: #e00b51;
+            box-shadow: 0 0 25px rgba(224, 11, 81, 0.6); /* Brillo neón difuminado */
+        }
+
+        /* Cara frontal con tus estilos originales */
+        .blog-card-front {
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Cara trasera nueva - mantiene tus mismos colores */
+        .blog-card-back {
+            background-color: #1a1a1a;
+            transform: rotateY(180deg);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 200px;
+            background-color: #252525;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top-left-radius: 11px; 
+            border-top-right-radius: 11px;
+            overflow: hidden; 
+            color: #666;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+        
+        .blog-card-content {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .blog-card-tag {
+            color: #e00b51;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .blog-card-title {
+            font-size: 1.3rem;
+            margin: 0 0 10px 0;
+            color: #fff;
+        }
+
+        .blog-card-excerpt {
+            color: #bbb;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Botón interactivo "Leer más" */
+        .blog-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: #e00b51;
+            border: 2px solid #e00b51;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .blog-btn:hover {
+            background-color: #e00b51;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Velvet Glow</h1>
+            </div>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="index.html">Inicio</a>
+                    <ul class="dropdown-content">
+                        <li><a href="blog.html">Blog de Belleza</a></li>
+                        <li><a href="lanzamientos.html">Nuevos lanzamientos</a></li>
+                        <li><a href="labios.html">Labios & Brillos</a></li>
+                        <li><a href="combos.html">Combos especiales</a></li>
+                    </ul>
+                </li>
+                <li><a href="novedades.html">Novedades</a></li>
+                <li><a href="carro.html">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="blog-container">
+        <h2 class="blog-title">Blog de Belleza</h2>
+        <p class="blog-subtitle">Tips, secretos de maquillaje y rutinas para hacer brillar tu piel.</p>
+        
+        <div class="blog-grid">
+            
+            <article class="blog-card">
+                <div class="blog-card-inner">
+                    <div class="blog-card-front">
+                        <div class="blog-card-image">
+                            <img src="img/blog1.jpg" alt="sushi mix">
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-tag">Tendencias</span>
+                            <h3 class="blog-card-title">Cómo lograr un Velvet Glow perfecto</h3>
+                            <p class="blog-card-excerpt">Descubre los pasos esenciales y qué labiales utilizar para conseguir un acabado luminoso y aterciopelado que dure todo el día.</p>
+                            <a href="#" class="blog-btn">Leer Artículo</a>
+                        </div>
+                    </div>
+                    <div class="blog-card-back">
+                        <h3 class="blog-card-title">Más Información</h3>
+                        <p class="blog-card-excerpt">Aquí puedes escribir el texto que quieras que aparezca detrás de la tarjeta 1 de forma fácil y cómoda.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-inner">
+                    <div class="blog-card-front">
+                        <div class="blog-card-image">
+                             <img src="img/Gemini_Generated_Image_mgi48kmgi48kmgi4.png" alt="sushi mix">
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-tag">Skincare</span>
+                            <h3 class="blog-card-title">Rutina diaria para labios hidratados</h3>
+                            <p class="blog-card-excerpt">Evita los labios resecos con esta rutina de exfoliación y brillo nocturno de solo 3 pasos usando nuestros mejores bálsamos.</p>
+                            <a href="#" class="blog-btn">Leer Artículo</a>
+                        </div>
+                    </div>
+                    <div class="blog-card-back">
+                        <h3 class="blog-card-title">Secretos de Skincare</h3>
+                        <p class="blog-card-excerpt">Aquí puedes colocar contenido extra o tips adicionales sobre el cuidado y la hidratación de los labios.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-inner">
+                    <div class="blog-card-front">
+                        <div class="blog-card-image">
+                             <img src="img/blog3.jpg" alt="sushi mix">
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-tag">Maquillaje</span>
+                            <h3 class="blog-card-title">Combos de color para esta temporada</h3>
+                            <p class="blog-card-excerpt">Te enseñamos a combinar tus brillos labiales favoritos con delineadores para crear un efecto de volumen inmediato e impactante.</p>
+                            <a href="#" class="blog-btn">Leer Artículo</a>
+                        </div>
+                    </div>
+                    <div class="blog-card-back">
+                        <h3 class="blog-card-title">Combinaciones de Color</h3>
+                        <p class="blog-card-excerpt">Añade aquí el texto adicional que complemente las combinaciones perfectas de maquillaje de esta temporada.</p>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+</body>
+</html>

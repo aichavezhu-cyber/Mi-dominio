@@ -1,0 +1,339 @@
+/* Configuración base de la página oscura */
+body {
+            background-color: #111; /* Fondo oscuro elegante */
+    color: #fff;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+        }
+
+
+header {
+    background-color: #000;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: #e00b51; /* Color rosa Velvet */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: .5rem 1rem;
+    display: block;
+}
+
+.nav-links li a:hover {
+    color: #F5276C;
+}
+
+/* ==========================================
+   3. MENÚ DESPLEGABLE (DROPDOWN DE INICIO)
+   ========================================== */
+.nav-links .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-links .dropdown-content {
+    display: none; /* Se oculta por defecto */
+    position: absolute;
+    top: 100%; /* Cae justo abajo de Inicio */
+    left: 0;
+    background-color: #ffffff; /* Fondo blanco */
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-radius: 4px;
+    z-index: 9999;
+}
+
+.nav-links .dropdown-content li {
+    display: block;
+    width: 100%;
+}
+
+.nav-links .dropdown-content li a {
+    color: #1a1a1a !important; /* Texto negro en el despliegue */
+    padding: 12px 16px !important;
+    text-decoration: none;
+    display: block !important;
+    text-align: left;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.nav-links .dropdown-content li a:hover {
+    background-color: #f5f0eb !important; /* Fondo nude al pasar mouse */
+    color: #ff0055 !important; /* Letras rosas */
+}
+
+.nav-links .dropdown:hover .dropdown-content {
+    display: block !important; /* Muestra el menú al pasar el mouse */
+}
+
+/* Contenedor del contenido general */
+.contenedor-principal {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.titulo-seccion {
+    color: #ff3366;
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 5px;
+}
+
+.subtitulo-seccion {
+    text-align: center;
+    color: #aaaaaa;
+    font-size: 1em;
+    margin-bottom: 40px;
+}
+
+/* Disposición lado a lado para la tienda y el carrito */
+.tienda-bloque {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Cuadrícula de 3 columnas para tus productos */
+.productos-rejilla {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Tarjeta elegante de producto */
+.producto-tarjeta {
+    background-color: #121212;
+    border: 1px solid #222222;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.producto-tarjeta:hover {
+    border-color: #ff3366;
+    transform: translateY(-5px);
+}
+
+/* Cuadro gris reservado para la fotografía */
+.imagen-contenedor {
+    background-color: #1a1a1a;
+    width: 100%;
+    height: 180px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.producto-tarjeta h3 {
+    font-size: 1.2em;
+    margin: 10px 0 5px 0;
+    font-weight: 600;
+}
+
+.producto-tarjeta .descripcion {
+    font-size: 0.85em;
+    color: #888888;
+    margin-bottom: 15px;
+}
+
+.producto-tarjeta .precio {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Botón con contorno fino */
+.btn-comprar {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.9em;
+    transition: all 0.3s;
+}
+
+.btn-comprar:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Lateral donde se van acumulando las compras */
+.carrito-panel {
+    flex: 1;
+    background-color: #121212;
+    border: 1px solid #ff3366;
+    border-radius: 6px;
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+}
+
+.carrito-panel h2 {
+    font-size: 1.3em;
+    margin-top: 0;
+    border-bottom: 1px solid #222222;
+    padding-bottom: 10px;
+}
+
+.carrito-lista {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    padding: 8px 0;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.carrito-total {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #ff3366;
+    border-bottom: 1px solid #222222;
+    padding-bottom: 15px;
+}
+
+/* Contenedor de opciones de envío */
+.opciones-envio {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-envio {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 1px solid #333333;
+    padding: 12px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.btn-envio i {
+    font-size: 1.2em;
+    color: #ff3366;
+}
+
+.btn-envio:hover {
+    border-color: #ff3366;
+    background-color: #221216;
+}
+
+/* ESTILOS DE LA PANTALLA EMERGENTE (MODAL) */
+.pantalla-fondo {
+    display: none; /* Oculta la pantalla por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semi-transparente */
+    backdrop-filter: blur(5px); /* Efecto borroso de fondo */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.pantalla-contenido {
+    background-color: #121212;
+    border: 2px solid #ff3366;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0px 0px 25px rgba(255, 51, 102, 0.3);
+    animation: aparecer 0.3s ease-out;
+}
+
+/* Pequeña animación para que se abra de forma fluida */
+@keyframes aparecer {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.icono-exito {
+    font-size: 4em;
+    color: #28a745; /* Color verde para transmitir éxito */
+    margin-bottom: 20px;
+}
+
+.pantalla-contenido h2 {
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+.btn-cerrar {
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background 0.2s;
+}
+
+.btn-cerrar:hover {
+    background-color: #d62250;
+}

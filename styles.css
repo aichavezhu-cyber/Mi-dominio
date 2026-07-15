@@ -1,0 +1,293 @@
+/* ==========================================
+   1. ESTILOS GENERALES Y BASE
+   ========================================== */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+/* ==========================================
+   2. CABECERA Y NAVEGACIÓN (MENÚ)
+   ========================================== */
+header {
+    background-color: #000;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: #e00b51; /* Color rosa Velvet */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: .5rem 1rem;
+    display: block;
+}
+
+.nav-links li a:hover {
+    color: #F5276C;
+}
+
+/* ==========================================
+   3. MENÚ DESPLEGABLE (DROPDOWN DE INICIO)
+   ========================================== */
+.nav-links .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-links .dropdown-content {
+    display: none; /* Se oculta por defecto */
+    position: absolute;
+    top: 100%; /* Cae justo abajo de Inicio */
+    left: 0;
+    background-color: #ffffff; /* Fondo blanco */
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-radius: 4px;
+    z-index: 9999;
+}
+
+.nav-links .dropdown-content li {
+    display: block;
+    width: 100%;
+}
+
+.nav-links .dropdown-content li a {
+    color: #1a1a1a !important; /* Texto negro en el despliegue */
+    padding: 12px 16px !important;
+    text-decoration: none;
+    display: block !important;
+    text-align: left;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.nav-links .dropdown-content li a:hover {
+    background-color: #f5f0eb !important; /* Fondo nude al pasar mouse */
+    color: #ff0055 !important; /* Letras rosas */
+}
+
+.nav-links .dropdown:hover .dropdown-content {
+    display: block !important; /* Muestra el menú al pasar el mouse */
+}
+
+/* ==========================================
+   4. SECCIÓN HERO (PORTADA PRINCIPAL)
+   ========================================== */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url('img/chica.png') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #F5276C;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #fc72a0;
+}
+
+/* ==========================================
+   SECCIÓN DE PRODUCTOS (SOLO CAJAS)
+   ========================================== */
+.menu-section {
+    padding: 5rem 2rem;
+    background-color: transparent; /* Se adapta al fondo gris de tu página */
+    text-align: center;
+}
+
+.menu-section h2 {
+    margin-bottom: 10px;
+    font-size: 2.8rem;
+    color: #242424; /* Título principal en blanco */
+}
+
+/* Subtítulo legible en tu fondo gris oscuro */
+.menu-section p {
+    color: #e0e0e0; 
+    margin-bottom: 3rem;
+}
+
+/* Contenedor en cuadrícula */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjeta contenedora blanca */
+.menu-item {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0, 0.15);
+    text-align: center;
+    color: #1a1a1a; /* Asegura que los textos internos sean oscuros */
+}
+
+/* ARREGLO PARA LA FOTO: Quita el gris feo y hace resaltar el cosmético */
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background-color: #f5f5f5; /* Fondo claro sutil detrás de la foto */
+    border-radius: 8px;
+    padding: 10px; /* Evita que el producto toque los bordes del recuadro */
+}
+
+.menu-item h3 {
+    margin: 1.2rem 0 0.5rem 0;
+    font-size: 1.3rem;
+    color: #1a1a1a;
+}
+
+.menu-item p {
+    color: #555555; /* Descripción en gris oscuro para que sea legible */
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.precio {
+    display: block;
+    color: #e00b51; /* Color rosa Velvet para el precio */
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 1rem;
+}
+
+/* ==========================================
+   6. FORMULARIO DE PEDIDOS Y CONTACTO
+   ========================================== */
+.reservas-section {
+    padding: 5rem 2rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+.reserva-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.reserva-form input,
+.reserva-form select {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contacto-section {
+    padding: 5rem 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contacto-info {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.contacto-info i {
+    font-size: 2rem;
+    color: #e00b51;
+    margin-bottom: 1rem;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* ==========================================
+   7. ADAPTACIÓN PARA CELULARES
+   ========================================== */
+@media (max-width: 430px) {
+    header {
+        position: static;
+    }
+    header nav {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-links {
+        flex-direction: column;
+        margin: 1rem 0;
+        text-align: center;
+        gap: 1rem;
+    }
+    .nav-links .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: #111;
+    }
+    .nav-links .dropdown-content li a {
+        color: #fff !important;
+        text-align: center;
+    }
+}

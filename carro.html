@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Glow - Tienda</title>
+    <!-- Enlace para cargar los iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <!-- Barra de Navegación Superior -->
+<header>
+        <nav>
+            <div class="logo"><h1>Velvet Glow</h1></div>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="index.html">Inicio</a>
+                    <ul class="dropdown-content">
+                        <li><a href="blog.html">Blog de Belleza</a></li>
+                        <li><a href="lanzamientos.html">Nuevos lanzamientos</a></li>
+                        <li><a href="labios.html">Labios & Brillos</a></li>
+                        <li><a href="combos.html">Combos especiales</a></li>
+                    </ul>
+                </li>
+                <li><a href="novedades.html">Novedades</a></li>
+                <li><a href="carro.html">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Título Principal de la Sección -->
+    <main class="contenedor-principal">
+        <h1 class="titulo-seccion">Labios & Brillos</h1>
+        <p class="subtitulo-seccion">Encuentra el tono e hidratación perfecta para destacar tu sonrisa.</p>
+
+        <!-- Bloque de la Tienda (Productos + Carrito) -->
+        <div class="tienda-bloque">
+            
+            <!-- Rejilla de Productos con sus Imágenes -->
+            <div class="productos-rejilla">
+                
+                <!-- Producto 1 -->
+                <div class="producto-tarjeta">
+                    <div class="imagen-contenedor">
+                        <img src="imgg/05.png" alt="Brillo Matte Velvet" class="producto-imagen">
+                    </div>
+                    <h3>Brillo Matte Velvet</h3>
+                    <p class="descripcion">Larga duración con acabado aterciopelado.</p>
+                    <p class="precio">S/. 29.90</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Brillo Matte Velvet', 29.90)">Añadir al Carrito</button>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="producto-tarjeta">
+                    <div class="imagen-contenedor">
+                        <img src="imgg/02.png" alt="Gloss Voluminizador" class="producto-imagen">
+                    </div>
+                    <h3>Gloss Voluminizador</h3>
+                    <p class="descripcion">Efecto 3D de volumen inmediato e hidratación.</p>
+                    <p class="precio">S/. 34.90</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Gloss Voluminizador', 34.90)">Añadir al Carrito</button>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="producto-tarjeta">
+                    <div class="imagen-contenedor">
+                        <img src="imgg/11.png" alt="">" alt="Brillo Matte Velvet" class="producto-imagen">
+                    </div>
+                    <h3>Brillo Matte Velvet</h3>
+                    <p class="descripcion">Larga duración con acabado aterciopelado.</p>
+                    <p class="precio">S/. 29.90</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Brillo Matte Velvet', 29.90)">Añadir al Carrito</button>
+                </div>
+
+            </div>
+
+            <!-- Sección del Carrito de Compras (Se mantiene intacta la lógica) -->
+            <div id="carrito-seccion" class="carrito-panel">
+                <h2>🛒 Mi Carrito</h2>
+                <ul id="carrito-lista" class="carrito-lista">
+                    <!-- Los productos añadidos se seguirán mostrando aquí -->
+                </ul>
+                
+                <div class="carrito-total">
+                    Total: S/. <span id="monto-total">0.00</span>
+                </div>
+
+                <!-- Opciones de Envío -->
+                <div class="opciones-envio">
+                    <button class="btn-envio" onclick="mostrarMensajeFinal()">
+                        <i class="fa-solid fa-truck-fast"></i> Compra / extranjero
+                    </button>
+                    <button class="btn-envio" onclick="mostrarMensajeFinal()">
+                        <i class="fa-solid fa-house-chimney"></i> Envió a domicilio
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PANTALLA EMERGENTE (Ventanita de agradecimiento oculta al inicio) -->
+    <div id="pantalla-emergente" class="pantalla-fondo">
+        <div class="pantalla-contenido">
+            <i class="fa-solid fa-circle-check icono-exito"></i>
+            <h2>¡Estaremos en contacto, gracias por tu compra!</h2>
+            <button class="btn-cerrar" onclick="cerrarPantalla()">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="scrip.js"></script>
+</body>
+</html>
