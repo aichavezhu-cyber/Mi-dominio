@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000, 
-    once: true 
-  });
-</script>
+    <link rel="stylesheet" href="https://unpkg.com" />
+    <script src="https://unpkg.com"></script>
+    <script src="script.js" defer></script>
+    <script>
+      AOS.init({
+        duration: 1000, 
+        once: true 
+      });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velvet Glow</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
+    <script src="https://fontawesome.com" crossorigin="anonymous"></script>
     
     <style>
-        /* Asegura que la portada sea el límite de los pétalos */
         .hero {
             position: relative;
             overflow: hidden;
         }
 
-        /* Estilo base de los pétalos generados por JS */
         .rose-petal {
             position: absolute;
             top: -30px;
@@ -33,51 +32,19 @@
             animation: caer linear infinite;
         }
 
-        /* Animación física de caída y rotación */
         @keyframes caer {
-            0% {
-                transform: translateY(0) rotate(0deg) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.8;
-            }
-            90% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(105vh) rotate(360deg) translateX(80px);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(105vh) rotate(360deg) translateX(80px); opacity: 0; }
         }
 
-        /* ======================================================== */
-        /* EFECTO DE BRILLO ROSA EN LOS TÍTULOS (HOVER)             */
-        /* ======================================================== */
-        .menu-section h2, 
-        .reservas-section h2, 
-        .contacto-section h2 {
-            transition: all 0.4s ease-in-out;
-            cursor: default;
-        }
-
-        .menu-section h2:hover, 
-        .reservas-section h2:hover, 
-        .contacto-section h2:hover {
-            color: #ff1b48 !important; 
-            text-shadow: 0 0 10px rgba(255, 183, 197, 0.8), 
-                         0 0 20px rgba(255, 105, 180, 0.5); 
-        }
-
-        /* ======================================================== */
-        /* ANIMACIÓN DE TEMBLOR PARA LAS IMÁGENES DE PROMOCIONES    */
-        /* ======================================================== */
-        .menu-item img {
-            transition: transform 0.2s ease-in-out; /* Regreso suave cuando quitas el mouse */
+        .menu-section h2:hover {
+            color: #ff527b !important; 
+            text-shadow: 0 0 10px rgba(255, 82, 123, 0.8); 
         }
 
         .menu-item img:hover {
-            /* Aplica la animación continuamente mientras el mouse esté encima y escala un 3% */
             animation: temblar 0.3s infinite linear;
         }
 
@@ -90,9 +57,6 @@
             100% { transform: translate(0, 0) rotate(0deg) scale(1.03); }
         }
 
-        /* ======================================================== */
-        /* ESTILOS REFORZADOS PARA QUIÉNES SOMOS                    */
-        /* ======================================================== */
         .about-container-fixed {
             display: flex !important;
             flex-direction: row;
@@ -103,210 +67,435 @@
             margin: 40px auto;
             padding: 20px;
             box-sizing: border-box;
-            animation: entradaSuave 1.2s ease-out forwards;
         }
 
-        .about-col-fixed {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .about-col-fixed img {
-            width: 100% !important;
-            max-width: 450px;
-            height: auto !important;
-            display: block;
-            margin: 0 auto;
-            border-radius: 8px;
-        }
-
-        .about-col-fixed p {
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #000000 !important; 
-        }
-        
-        .about-col-fixed p strong {
-            color: #000000 !important;
-        }
-
-        @keyframes entradaSuave {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        .about-col-fixed { flex: 1; min-width: 280px; }
+        .about-col-fixed img { width: 100% !important; max-width: 450px; height: auto !important; display: block; margin: 0 auto; border-radius: 8px; }
+        .about-col-fixed p { font-size: 16px; line-height: 1.8; margin-bottom: 20px; color: #ffffff !important; }
+        .about-col-fixed p strong { color: #ff527b !important; }
 
         @media (max-width: 768px) {
-            .about-container-fixed {
-                flex-direction: column !important;
-                text-align: center;
-            }
+            .about-container-fixed { flex-direction: column !important; text-align: center; }
         }
     </style>
 </head>
 <body>
+
     <header>
         <nav>
             <div class="logo">
                 <h1>Velvet Glow</h1>
             </div>
             <ul class="nav-links">
-    <li class="dropdown">
-    <a href="index.html">Inicio</a>
-    <ul class="dropdown-content">
-        <li><a href="blog.html">Blog de Belleza</a></li>
-        <li><a href="lanzamientos.html">Nuevos lanzamientos</a></li>
-        <li><a href="labios.html">Labios & Brillos</a></li>
-        <li><a href="combos.html">Combos especiales</a></li>
-        <li><a href="carro.html">Carrito</a></li>
-    </ul>
-</li>
-
-    <li><a href="#quienes-somos">Quiénes Somos</a></li>
-    <li><a href="#menu">Novedades</a></li>
-    <li><a href="#reservas">Carrito</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-</ul>
-
+                <li class="dropdown">
+                    <a href="index (1).html">Inicio</a>
+                    <ul class="dropdown-content">
+                        <li><a href="blog.html">Blog de Belleza</a></li>
+                        <li><a href="lanzamientos.html">Nuevos lanzamientos</a></li>
+                        <li><a href="labios.html">Labios & Brillos</a></li>
+                        <li><a href="combos.html">Combos especiales</a></li>
+                        <li><a href="carro.html">Carrito</a></li>
+                    </ul>
+                </li>
+                <li><a href="index (1).html#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="index (1).html#menu">Novedades</a></li>
+                <li><a href="index (1).html#reservas">Pedidos</a></li>
+                <li><a href="index (1).html#contacto">Contacto</a></li>
+            </ul>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
-    <div class="hero-content">
-        <h2>Bienvenidos a Velvet Glow</h2>
-        <p>Descubre el brillo que hay en ti con Velvet Glow</p>
-        <a href="#menu" class="btn">Ver mas</a>
-    </div>
-</section>
-
-<section id="quienes-somos" class="menu-section">
-    <h2>Quiénes Somos</h2>
-    <div class="about-container-fixed">
+        <div class="hero-content">
+            <h2>Bienvenidos a Velvet Glow</h2>
+            <p>Descubre el brillo que hay en ti con Velvet Glow</p>
+            <a href="#menu" class="btn">Ver mas</a>
+        </div>
+    </section>
+      <div class="banner-promo-top">
+        <h2>Haz que tu belleza destaque</h2>
+        <p>Compra nuestros productos profesionales o contáctanos para asesorarte.</p>
         
-        <div class="about-col-fixed">
-            <img src="img/rubor.png" alt="Velvet Glow Concepto">
+        <div class="banner-botones-group">
+            <a href="#menu" class="btn-banner-comprar">Comprar Ahora</a>
+            <a href="#contacto" class="btn-banner-contactar">Contactar</a>
         </div>
+    </div>
+
+    <!-- QUIÉNES SOMOS -->
+    <section id="quienes-somos" class="menu-section">
+        <h2>Quiénes Somos</h2>
+        <div class="about-container-fixed">
+            <div class="about-col-fixed">
+                <img src="img/rubor.png" alt="Velvet Glow Concepto">
+            </div>
+            <div class="about-col-fixed">
+                <p>
+                    En <strong>Velvet Glow</strong> nos dedicamos a resaltar tu belleza natural con productos de la más alta calidad. Creemos firmemente que cada persona posee un brillo único, y nuestro objetivo es brindarte las herramientas ideales para que lo hagas destacar día con día de una forma saludable y deslumbrante.
+                </p>
+                <p>
+                    Nuestras fórmulas están diseñadas pensando en la frescura, el cuidado de la piel y acabados aterciopelados que te acompañarán en cada paso que des. ¡Sé parte de nuestra comunidad y descubre tu versión más radiante!
+                </p>
+                <a href="#menu" class="btn">Explorar Colección</a>
+            </div>
+        </div>
+    </section>
+
+<section class="beneficios-section">
+    <h2>¿Por qué elegir Velvet Glow?</h2>
+    <div class="beneficios-grid">
         
-        <div class="about-col-fixed">
-            <p>
-                En <strong>Velvet Glow</strong> nos dedicamos a resaltar tu belleza natural con productos de la más alta calidad. Creemos firmemente que cada persona posee un brillo único, y nuestro objetivo es brindarte las herramientas ideales para que lo hagas destacar día con día de una forma saludable y deslumbrante.
-            </p>
-            <p>
-                Nuestras fórmulas están diseñadas pensando en la frescura, el cuidado de la piel y acabados aterciopelados que te acompañarán en cada paso que des. ¡Sé parte de nuestra comunidad y descubre tu versión más radiante!
-            </p>
-            <a href="#menu" class="btn">Explorar Colección</a>
+        <!-- Tarjeta 1 -->
+        <div class="beneficio-card">
+            <svg viewBox="0 0 24 24" width="45" height="45"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <p>Calidad Premium</p>
         </div>
-        
+
+        <!-- Tarjeta 2 -->
+        <div class="beneficio-card">
+            <svg viewBox="0 0 24 24" width="45" height="45"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <p>Productos Cruelty Free</p>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="beneficio-card">
+            <svg viewBox="0 0 24 24" width="45" height="45"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-12l2.5 3H17V6.5h2.5zM18 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            <p>Envíos Rápidos</p>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="beneficio-card">
+            <svg viewBox="0 0 24 24" width="45" height="45"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zm0-16c1.38 0 2.5 1.12 2.5 2.5 0 1.55-1.25 2.8-2.5 3.5-1.25-.7-2.5-1.95-2.5-3.5 0-1.38 1.12-2.5 2.5-2.5z"/></svg>
+            <p>Compra Segura</p>
+        </div>
+
     </div>
 </section>
 
-<section id="menu" class="menu-section">
-    <h2>Promociones</h2>
-    <div class="menu-grid">
-        <div class="menu-item">
-            <img src="img/rubor.png" alt="Rubor Velvet Glow">
-            <h3> Rubor Velvet Glow</h3>
-            <p>Llévate hoy el rubor Velvet Glow con destellos a un precio especial.</p>
-            <span class="precio">s/. 75.00</span>
-        </div>
-        <div class="menu-item">
-            <img src="img/labial.png" alt="Labial Velvet Glow">
-            <h3>Labial Velvet Glow</h3>
-            <p>Llévate hoy el labial Velvet Glow con destellos a un precio especial y haz brillar tu sonrisa.</p>
-            <span class="precio">S/. 40.00</span>
-        </div>
-        <div class="menu-item">
-            <img src="img/polvito.jpeg" alt="Barra Multiusos Velvet Glow">
-            <h3>Glow Premium Highlighter </h3>
-            <p>Selección experta de polvos finos y sedosos para resaltar tus facciones</p>
-            <span class="precio">28.99€</span>
-        </div>
-    </div>
-</section>
+<!-- ESTILOS INTERNOS PARA EVITAR REVISAR EL CSS -->
+<style>
+    .beneficios-section {
+        padding: 5rem 2rem;
+        background-color: #0b0b0b;
+        text-align: center;
+    }
 
-<section id="reservas" class="reservas-section">
-    <h2>Pedidos</h2>
-    <form class="reserva-form">
-        <input type="text" placeholder="Nombre Completo" required>
-        <input type="email" placeholder="Email">
-        <input type="tel" placeholder="Teléfono">
-        <input type="date">
-        <input type="time">
-        <select>
-            <option value="">Realiza tu pedido</option>
-            <option value="1">Glow Diario</option>
-            <option value="2">Glam Nocturno</option>
-            <option value="3">Velvet Completo</option>
-        </select>
-        <button type="submit" class="btn">Comprar ahora</button>
-    </form>
-</section>
+    .beneficios-section h2 {
+        color: #ffffff;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 45px;
+        font-family: sans-serif;
+    }
 
-<section id="contacto" class="contacto-section">
-    <h2>Contacto</h2>
-    <div class="contacto-info">
-        <div>
-                    <i class="fas fa-map-marker-alt"></i>
-        <p>Calle Principal 123, Alicante</p>
-    </div>
-    <div>
-        <i class="fas fa-phone"></i>
-        <p>913 777 306</p>
-    </div>
-    <div>
-        <i class="fas fa-envelope"></i>
-        <p>info@Velvet.com</p>
-    </div>
-</div>
-</section>
+    .beneficios-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.8rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-<footer>
-    <p>&copy; Velvet Glow. Todos los derechos reservados</p>
-</footer>
+    .beneficio-card {
+        background-color: #161616;
+        border: 2px solid transparent;
+        border-radius: 16px;
+        padding: 3rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        cursor: pointer;
+        /* Esto activa el suavizado del movimiento */
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                    box-shadow 0.4s ease, 
+                    border-color 0.4s ease;
+    }
 
+    .beneficio-card svg {
+        fill: #ff527b;
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .beneficio-card p {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 1rem;
+        margin: 0;
+        font-family: sans-serif;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+</style>
+
+<!-- MOVIMIENTO CON JAVASCRIPT DIRECTO -->
 <script>
-    function crearPetalo() {
-        const hero = document.getElementById('inicio');
-        if (!hero) return;
+    document.addEventListener("DOMContentLoaded", () => {
+        const tarjetasBeneficios = document.querySelectorAll(".beneficio-card");
 
-        const petalo = document.createElement('span');
-        petalo.className = 'rose-petal';
+        tarjetasBeneficios.forEach(tarjeta => {
+            const svg = tarjeta.querySelector("svg");
+            const texto = tarjeta.querySelector("p");
 
-        const opciones = ['🌸', '🌹', '🍂'];
-        petalo.innerText = opciones[Math.floor(Math.random() * opciones.length)];
+            // Animación al pasar el mouse por encima
+            tarjeta.addEventListener("mouseover", () => {
+                tarjeta.style.transform = "translateY(-12px)";
+                tarjeta.style.borderColor = "#ff527b";
+                tarjeta.style.boxShadow = "0 15px 35px rgba(255, 82, 123, 0.25)";
+                
+                if (svg) {
+                    svg.style.transform = "scale(1.25)";
+                    svg.style.filter = "drop-shadow(0 0 12px #ff527b)";
+                }
+                
+                if (texto) {
+                    texto.style.color = "#ff527b";
+                    texto.style.textShadow = "0 0 8px rgba(255, 82, 123, 0.5)";
+                }
+            });
 
-        petalo.style.left = Math.random() * 100 + 'vw';
-        
-        const tamaño = Math.random() * 16 + 12;
-        petalo.style.fontSize = tamaño + 'px';
+            // Volver a la normalidad al quitar el mouse
+            tarjeta.addEventListener("mouseout", () => {
+                tarjeta.style.transform = "translateY(0)";
+                tarjeta.style.borderColor = "transparent";
+                tarjeta.style.boxShadow = "0 4px 15px rgba(0,0,0, 0.2)";
+                
+                if (svg) {
+                    svg.style.transform = "scale(1)";
+                    svg.style.filter = "none";
+                }
+                
+                if (texto) {
+                    texto.style.color = "#ffffff";
+                    texto.style.textShadow = "none";
+                }
+            });
+        });
+    });
+</script>
+<!-- ========================================== -->
 
-        const duracion = Math.random() * 4 + 4;
-        petalo.style.animationDuration = duracion + 's';
 
-        if (tamaño < 18) {
-            petalo.style.filter = 'blur(1px)';
-            petalo.style.opacity = '0.5';
+    <!-- SECCIÓN PROMOCIONES ORIGINALES -->
+    <section id="menu" class="menu-section">
+        <h2>Promociones</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="img/rubor.png" alt="Rubor Velvet Glow">
+                <h3>Rubor Velvet Glow</h3>
+                <p>Llévate hoy el rubor Velvet Glow con destellos a un precio especial.</p>
+                <span class="precio">s/. 75.00</span>
+                <button class="btn-agregar-carrito">Añadir al carrito</button>
+            </div>
+            <div class="menu-item">
+                <img src="img/labial.png" alt="Labial Velvet Glow">
+                <h3>Labial Velvet Glow</h3>
+                <p>Llévate hoy el labial Velvet Glow con destellos a un precio especial y haz brillar tu sonrisa.</p>
+                <span class="precio">S/. 40.00</span>
+                <button class="btn-agregar-carrito">Añadir al carrito</button>
+            </div>
+            <div class="menu-item">
+                <img src="img/polvito.jpeg" alt="Barra Multiusos Velvet Glow">
+                <h3>Glow Premium Highlighter</h3>
+                <p>Selección experta de polvos finos y sedosos para resaltar tus facciones</p>
+                <span class="precio">S/.28.90</span>
+                <button class="btn-agregar-carrito">Añadir al carrito</button>
+            </div>
+            <div class="destacados-grid">
+            <div class="card-destacada">
+                <div class="img-destacada-container"><img src="img/base.png" alt="Base HD Velvet"></div>
+                <h3>Base HD Velvet</h3>
+                <p>Cobertura completa de larga duración.</p>
+                <span class="precio-destacado">S/.59.90</span>
+                <button class="btn-agregar-carrito">Añadir al carrito</button>
+            </div>
+            <div class="card-destacada">
+                <div class="img-destacada-container"><img src="img/labial-matte.png" alt="Labial Matte"></div>
+                <h3>Labial Matte</h3>
+                <p>Acabado terciopelo.</p>
+                <span class="precio-destacado">S/.39.90</span>
+                <button class="btn-agregar-carrito">Añadir al carrito</button>
+            </div>
+            <div class="card-destacada">
+                <div class="img-destacada-container"><img src="img/paleta.png" alt="Paleta Glam"></div>
+                <h3>Paleta Glam</h3>
+                <p>12 tonos altamente pigmentados.</p>
+                <span class="precio-destacado">S/.69.90</span>
+                <button class="btn-agregar-carrito">Añadir al carrito</button>
+            </div>
+            <div class="card-destacada">
+                <div class="img-destacada-container"><img src="img/brochas.png" alt="Kit de Brochas"></div>
+                <h3>Kit de Brochas</h3>
+                <p>Brochas profesionales.</p>
+                <span class="precio-destacado">S/.89.90</span>
+                <button class="btn-agregar-carrito">Añadir al carrito</button>
+            </div>
+        </div>
+    </section>
+
+ <section id="testimonios" class="testimonios-section">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="testimonios-grid">
+            
+            <div class="testimonio-card" onmouseover="iluminarEstrellas(this)" onmouseout="apagarEstrellas(this)">
+                <div class="estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                <p class="testimonio-texto">"Los productos son increíbles y duran todo el día."</p>
+                <h4 class="testimonio-author">- Andrea</h4>
+            </div>
+            
+            <div class="testimonio-card" onmouseover="iluminarEstrellas(this)" onmouseout="apagarEstrellas(this)">
+                <div class="estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                <p class="testimonio-texto">"Excelente atención y maquillaje profesional."</p>
+                <h4 class="testimonio-author">- Camila</h4>
+            </div>
+            
+            <!-- TARJETA CORREGIDA DE SOFIA -->
+            <div class="testimonio-card" onmouseover="iluminarEstrellas(this)" onmouseout="apagarEstrellas(this)">
+                <div class="estrellas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                <p class="testimonio-texto">"Mi tienda favorita para comprar maquillaje."</p>
+                <h4 class="testimonio-author">- Sofia</h4>
+            </div>
+
+        </div>
+    </section>
+
+     <section id="reservas" class="reservas-section">
+        <div class="contenedor-dual-pedidos">
+            
+            <!-- Bloque Izquierdo: Tu Formulario -->
+            <div class="bloque-formulario-izq">
+                <h2>Pedidos</h2>
+                <form class="reserva-form">
+                    <input type="text" placeholder="Nombre Completo" required>
+                    <input type="email" placeholder="Email">
+                    <input type="tel" placeholder="Teléfono">
+                    <input type="date">
+                    <input type="time">
+                    <select>
+                        <option value="">Realiza tu pedido</option>
+                        <option value="1">Glow Diario</option>
+                        <option value="2">Glam Nocturno</option>
+                        <option value="3">Velvet Completo</option>
+                    </select>
+                    <button type="submit" class="btn">Comprar ahora</button>
+                </form>
+            </div>
+
+              <div class="bloque-informacion-der">
+                <h3 class="titulo-rosa-pedidos">Información</h3>
+                <div>
+                    <!-- Icono Ubicación SVG Blanco -->
+                    <p class="parrafo-info-pedidos">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="white" style="margin-right: 8px; vertical-align: middle;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        Lima, Perú
+                    </p>
+                    <!-- Icono Teléfono SVG Blanco -->
+                    <p class="parrafo-info-pedidos">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="white" style="margin-right: 8px; vertical-align: middle;"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        +51 999 999 999
+                    </p>
+                    <!-- Icono Correo SVG Blanco -->
+                    <p class="parrafo-info-pedidos">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="white" style="margin-right: 8px; vertical-align: middle;"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        contacto@velvetglow.com
+                    </p>
+                </div>
+                
+                <h3 class="titulo-rosa-pedidos">Redes Sociales</h3>
+                <div class="contenedor-redes-pedidos">
+                    <!-- Instagram SVG -->
+                    <a href="#" class="btn-red-social-pedido">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                    <!-- Facebook SVG -->
+                    <a href="#" class="btn-red-social-pedido">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+                    </a>
+                    <!-- TikTok SVG -->
+                    <a href="#" class="btn-red-social-pedido">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.71 4.1 1.12 1.09 2.69 1.63 4.25 1.68v3.93c-1.67-.04-3.29-.6-4.66-1.57-.1-.07-.18-.15-.27-.23v6.17c.04 2.44-1.12 4.77-3.11 6.13-1.99 1.34-4.62 1.58-6.83.62-2.22-.96-3.84-3.13-4.14-5.52-.36-2.81 1.25-5.61 3.92-6.73 1.23-.52 2.58-.65 3.88-.39v4.03c-.8-.24-1.67-.14-2.4.28-.79.46-1.32 1.3-1.42 2.22-.13 1.28.69 2.47 1.95 2.76 1.17.27 2.43-.32 2.89-1.41.11-.27.16-.56.16-.86V.02z"/></svg>
+                    </a>
+                </div>
+                <div class="mapa-pedidos-caja">
+                    <iframe src="https://www.google.com/maps?q=Lima,Peru&output=embed" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <a href="https://www.google.com/maps?q=Lima,Peru&output=embed" target="_blank" class="btn-flotante-mapas">Abrir en Maps <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer id="contacto" class="footer-contacto-unificado">
+        <span class="contacto-pequeno">Contacto</span>
+        <div class="footer-content">
+            <div class="footer-marca">
+                <h2>Velvet Glow</h2>
+                <p>Belleza que inspira confianza.</p>
+            </div>
+                       <div class="footer-redes">
+                <!-- Facebook -->
+                <a href="#" class="footer-social-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+                </a>
+                <!-- Instagram -->
+                <a href="#" class="footer-social-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                </a>
+                <!-- TikTok -->
+                <a href="#" class="footer-social-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.71 4.1 1.12 1.09 2.69 1.63 4.25 1.68v3.93c-1.67-.04-3.29-.6-4.66-1.57-.1-.07-.18-.15-.27-.23v6.17c.04 2.44-1.12 4.77-3.11 6.13-1.99 1.34-4.62 1.58-6.83.62-2.22-.96-3.84-3.13-4.14-5.52-.36-2.81 1.25-5.61 3.92-6.73 1.23-.52 2.58-.65 3.88-.39v4.03c-.8-.24-1.67-.14-2.4.28-.79.46-1.32 1.3-1.42 2.22-.13 1.28.69 2.47 1.95 2.76 1.17.27 2.43-.32 2.89-1.41.11-.27.16-.56.16-.86V.02z"/></svg>
+                </a>
+                <!-- YouTube -->
+                <a href="#" class="footer-social-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107A31.948 31.948 0 0 0 0 12c0 1.944.165 3.887.492 5.817a3.004 3.004 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107A31.944 31.944 0 0 0 24 12a31.948 31.948 0 0 0-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+
+        </div>
+        <div class="footer-derechos">
+            <p>&copy; 2026 Velvet Glow | Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function iluminarEstrellas(tarjeta) {
+            const estrellas = tarjeta.querySelectorAll('.estrellas span');
+            estrellas.forEach((estrella, index) => {
+                setTimeout(() => {
+                    estrella.style.textShadow = '0 0 12px #ffb703, 0 0 20px #ffb703';
+                    estrella.style.transform = 'scale(1.2)';
+                }, index * 50);
+            });
+        }
+        function apagarEstrellas(tarjeta) {
+            const estrellas = tarjeta.querySelectorAll('.estrellas span');
+            estrella.forEach((estrella) => {
+                estrella.style.textShadow = 'none';
+                estrella.style.transform = 'scale(1)';
+            });
+        }
+    </script>
+     <script>
+        function iluminarEstrellas(tarjeta) {
+            const estrellas = tarjeta.querySelectorAll('.estrellas span');
+            estrellas.forEach((estrella, index) => {
+                setTimeout(() => {
+                    estrella.style.textShadow = '0 0 12px #ffb703, 0 0 20px #ffb703';
+                    estrella.style.transform = 'scale(1.2)';
+                }, index * 50);
+            });
         }
 
-        hero.appendChild(petalo);
-
-        setTimeout(() => {
-            petalo.remove();
-        }, duracion * 1000);
-    }
-
-    for (let i = 0; i < 15; i++) {
-        crearPetalo();
-    }
-
-    setInterval(crearPetalo, 300);
-</script>
-
+        function apagarEstrellas(tarjeta) {
+            const estrellas = tarjeta.querySelectorAll('.estrellas span');
+            estrellas.forEach((estrella) => {
+                estrella.style.textShadow = 'none';
+                estrella.style.transform = 'scale(1)';
+            });
+        }
+    </script>
 </body>
 </html>
